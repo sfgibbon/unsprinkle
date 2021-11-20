@@ -27,7 +27,9 @@ const PhotoGridItem = ({ id, src, alt, tags }) => {
       </Anchor>
       <Tags>
         {tags.map((tag) => (
-          <Tag key={tag}>{tag}</Tag>
+          <Tag key={tag} title={tag}>
+            {tag}
+          </Tag>
         ))}
       </Tags>
     </article>
@@ -51,7 +53,6 @@ const Image = styled.img`
 
 const Tags = styled.ul`
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
 `;
 
@@ -61,6 +62,9 @@ const Tag = styled.li`
   font-size: 0.875rem;
   font-weight: 475;
   color: var(--color-gray-800);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export default PhotoGridItem;
